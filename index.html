@@ -507,6 +507,7 @@
         <a href="#" class="btn" onclick="showPayment()">Go to Payment</a>
     </div>
     
+    <canvas id="particles"></canvas>
 <audio id="clickSound" src="https://files.catbox.moe/0i11yd.mp3"></audio>
     
     <div class="page hidden" id="payment">
@@ -558,6 +559,15 @@
             }, 2500);
         });
 
+  // Efek klik tombol
+  const clickSound = document.getElementById("clickSound");
+  document.querySelectorAll(".btn-link, .collapsible").forEach(btn => {
+    btn.addEventListener("click", () => {
+      clickSound.currentTime = 0;
+      clickSound.play();
+    });
+  });
+        
         function showPayment() {
             const about = document.getElementById('about');
             const payment = document.getElementById('payment');
